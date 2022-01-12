@@ -18,5 +18,6 @@ int main(void){
     }
 
     printf("%d %d", min, max);
+    
     return 0;
 }
