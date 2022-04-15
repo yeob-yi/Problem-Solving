@@ -9,7 +9,7 @@ int main(){
     char input[1000001];
     scanf("%s", input);
 
-    // printf("%d %d\n", 'a', 'z'); // 97 ~ 122
+    // printf("%d %d\n", 'a', 'z'); // 97 ~ 122 
     // printf("%d %d", 'A', 'Z'); // 65 ~ 90
     int len = strlen(input);
     for(int i=0; i<len; i++){
