@@ -22,11 +22,11 @@ int main(void){
         else
             temp = calculate(temp);
         cycle++;
-    }
-
+    } 
+ 
     if(cycle==0)
         cycle = 1;
-    
+     
     printf("%d", cycle);
     return 0;
 }
