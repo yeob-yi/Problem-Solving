@@ -1,35 +1,32 @@
 #include <stdio.h>
 
-int check_self(int num);
+int calculate(int num);
 
-int main(void){
-    int before=1;
-    int i=1;
-
-    while(i<10000){
-        i = check_self(i);
-        for(int k=before; k<i; k++){
-            printf("%d\n", k);
-        }
-        i++;
-        before = i+1;
+int main(){
+    int result=0;
+    int check[10000] = {0, };
+    result = calculate(1);
+    for(int i=2; i<10000; i++){
+        // printf("%d ", result);
+        if(result-1 < 10000)
+            check[result-1] = 1;
+        result = calculate(i);
     }
+    // printf("\n");
 
-    return 0;
+    for(int i=0; i<10000; i++){
+        if(check[i]==0)
+            printf("%d\n", i+1);
+    }
 }
 
-int check_self(int num){
+int calculate(int num){
     int ans;
 
-    if(num<10){
-        ans = num + num;
-    }else if(num<100){
-        ans = num + num/10 + num%10;
-    }else if(num<1000){
-        ans = num + num/100 + (num%100)/10 + num%10;
-    }else{
-        ans = num + num/1000 + (num%1000)/100 + (num%100)/10 + num%10;
-    }
+    ans = num;
+    do{
+        ans += num%10;
+    }while((num/=10) != 0);
 
     return ans;
 }
